@@ -1,0 +1,6 @@
+{
+  "maxEntries": 100,
+  "maxAgeDays": 30,
+  "isMonitoringEnabled": true,
+  "version": "1.0.0"
+}

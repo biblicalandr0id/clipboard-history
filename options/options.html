@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Clipboard History Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Local Clipboard History Options</h1>
+    
+    <div class="option-section">
+      <h2>General Settings</h2>
+      
+      <div class="option-group">
+        <label for="maxEntries">Maximum number of clipboard entries:</label>
+        <div class="option-control">
+          <input type="number" id="maxEntries" min="10" max="1000" value="100">
+          <span class="option-hint">Entries (10-1000)</span>
+        </div>
+      </div>
+      
+      <div class="option-group">
+        <label for="maxAgeDays">Keep entries for maximum of:</label>
+        <div class="option-control">
+          <input type="number" id="maxAgeDays" min="1" max="365" value="30">
+          <span class="option-hint">Days (1-365)</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="option-section">
+      <h2>Data Management</h2>
+      
+      <div class="option-group">
+        <button id="exportBtn" class="button">Export Clipboard History</button>
+        <span class="option-hint">Save your clipboard history as a JSON file</span>
+      </div>
+      
+      <div class="option-group">
+        <button id="importBtn" class="button">Import Clipboard History</button>
+        <span class="option-hint">Load clipboard history from a saved JSON file</span>
+        <input type="file" id="importFile" accept=".json" style="display: none;">
+      </div>
+      
+      <div class="option-group">
+        <button id="clearBtn" class="button danger">Clear Clipboard History</button>
+        <span class="option-hint">Delete all clipboard history entries</span>
+      </div>
+    </div>
+    
+    <div class="option-section">
+      <h2>About</h2>
+      
+      <div class="about-content">
+        <p>Local Clipboard History v1.0.0</p>
+        <p>A privacy-focused clipboard history manager that stores all data locally.</p>
+        <p>All clipboard data is stored locally on your device and is never transmitted to any external servers.</p>
+      </div>
+    </div>
+    
+    <div class="actions">
+      <button id="saveBtn" class="button primary">Save Changes</button>
+      <button id="resetBtn" class="button">Reset to Defaults</button>
+    </div>
+  </div>
+  
+  <div id="statusMessage" class="status-message"></div>
+  
+  <script src="options.js"></script>
+</body>
+</html>

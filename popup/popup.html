@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Clipboard History</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Clipboard History</h1>
+    </div>
+    
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search clipboard history..." aria-label="Search clipboard history">
+      <button id="clearSearchBtn" class="icon-button" aria-label="Clear search">×</button>
+    </div>
+    
+    <div class="toolbar">
+      <button id="clearAllBtn" class="button" aria-label="Clear all clipboard history">Clear All</button>
+      <div class="spacer"></div>
+      <span id="entryCount" class="entry-count">0 entries</span>
+    </div>
+    
+    <div class="clipboard-list" id="clipboardList" role="list">
+      <!-- Clipboard entries will be shown here -->
+      <div class="empty-state" id="emptyState">
+        <p>No clipboard history yet.</p>
+        <p>Copy text to see it here.</p>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <button id="optionsBtn" class="button" aria-label="Options">Options</button>
+      <div class="spacer"></div>
+      <span class="version">v1.0.0</span>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

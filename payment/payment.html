@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upgrade to Pro</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .features {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .feature {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .feature:before {
+            content: "✓";
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .purchase-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .purchase-btn:hover {
+            background-color: #45a049;
+        }
+        .purchase-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upgrade to Pro</h2>
+        <div class="features">
+            <div class="feature">Unlimited clipboard history</div>
+            <div class="feature">Advanced search capabilities</div>
+            <div class="feature">Permanent storage</div>
+            <div class="feature">Priority support</div>
+        </div>
+        <div class="price">$4.99 <span style="font-size: 16px;">one-time payment</span></div>
+        <button id="purchaseBtn" class="purchase-btn">Purchase Now</button>
+    </div>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="payment.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await window.paymentSystem.initializePayment();
+            const purchaseBtn = document.getElementById('purchaseBtn');
+            
+            purchaseBtn.addEventListener('click', async () => {
+                purchaseBtn.disabled = true;
+                try {
+                    await window.paymentSystem.createPaymentSession();
+                } catch (error) {
+                    console.error('Payment error:', error);
+                    purchaseBtn.disabled = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
